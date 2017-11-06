@@ -1,0 +1,53 @@
+import matplotlib.pyplot as plt
+plt.clf ()
+QuakeData = open("currentQuakes.txt")
+
+ColumnNames = QuakeData.readline() 
+line = plt.figure()
+
+time= []
+date = []
+magnitude = []
+
+for line in QuakeData:
+    #line.split turns each row into a list of individual strings.
+    line = line.split(',')
+    #time.append()
+    #time.append(str(line[12:19]))
+    #date.append(str(line[12:19]))
+    #magnitude.append(str(line[12:19]))
+    
+plt.ylabel("Magnitude")
+plt.xlabel("Time (h,m,s)")
+plt.suptitle("Magnitude of Quakes on 08/28/17")
+
+#plt.scatter(time, date, color = "green", label="date")
+
+#plt.yaxis
+
+#plt.scatter(time, magnitude, color = "purple", label="magnitude")
+#plt.scatter(bbox_to_anchor=(1, 1), loc = 1, borderaxespad=0)
+
+time.append(float(line[1]))
+
+currentQuakes = open("currentQuakes.txt")
+
+size = 0
+
+TimeList = []
+MagList = []
+
+
+for line in currentQuakes:
+    second_line = currentQuakes.readline()    
+    TimeList.append(second_line[11:19])
+    test = line.split(',') 
+    MagList.append(float(test[4]) )
+    size += 1
+
+print (size)
+print (TimeList)
+print (MagList)
+
+Xaxis = []
+plt.show ()
