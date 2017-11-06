@@ -1,0 +1,31 @@
+import matplotlib.pyplot as plt
+import matplotlib.image as mpimg
+#import numpy as np
+plt.clf()
+
+earthquakedata = open('currentQuakes.txt')
+
+ColumnNames = earthquakedata.readline()
+
+#creating empty lists
+lat = []
+longitude = []
+
+#setting picture as a variable
+image = mpimg.imread ("map.png")
+
+for line in earthquakedata:
+    #line.split turns each row into a list of individual strings
+    line = line.split(',')
+    lat.append(float(line[1]))
+    longitude.append(float(line[2]))
+
+#create scatter plot
+plt.scatter(longitude, lat)
+
+#puts image behind scatter plot; extent defines where the image should be
+plt.imshow(image, extent=[-197,196,87,-63])
+
+plt.xlabel('Longitude')
+plt.ylabel('Latitude')
+plt.show()
