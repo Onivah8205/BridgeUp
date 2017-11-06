@@ -1,6 +1,5 @@
 import matplotlib.pyplot as plt
 import matplotlib.image as mpimg
-#import numpy as np
 plt.clf()
 
 earthquakedata = open('currentQuakes.txt')
@@ -12,7 +11,7 @@ lat = []
 longitude = []
 
 #setting picture as a variable
-image = mpimg.imread ("map.png")
+image = mpimg.imread ("mapp.jpg")
 
 for line in earthquakedata:
     #line.split turns each row into a list of individual strings
